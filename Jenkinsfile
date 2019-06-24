@@ -54,7 +54,6 @@ node {
             println "checking "+mpApiUrl
             String max = new JsonSlurper().parseText(http_get(mpApiUrl)).compatibilities.find{it.application == 'confluence'}.hosting.server.max.version 
             println 'found ' + max
-			println("versionComparator($max, $latest) = " + versionComparator(max, latest))
             if(versionComparator(max, latest) < 0) {
 				  println 'sending mail'
 			      mail to:fog('kDBuW/GgxJOUa0vUEESs1BsZhdhDx6pbT75O63KHcts='), subject: "update $it to $latest ", body: "see <a href=\"$manageURL\">Marketplace</a>",  mimeType: "text/html"
