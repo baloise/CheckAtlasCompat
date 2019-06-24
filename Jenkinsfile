@@ -42,6 +42,7 @@ node {
 			  return c
 			}
 		  }
+		}
 	}
 	
     String cb = http_get('https://my.atlassian.com/download/feeds/current/confluence.json')
